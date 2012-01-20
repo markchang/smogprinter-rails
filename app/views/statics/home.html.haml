@@ -1,23 +1,15 @@
 %p
-	Hello, world.
-
 - if current_user
 	%p
-		Your info:
-		%ul
-			%li= current_user.uid
-			%li= current_user.name
-			%li= current_user.nickname
-			%li= current_user.token
-			%li= current_user.secret
-			%li= current_user.api_key
-			
-		Tweet something
+		= "Hello there, #{current_user.name}."
+		%br/
+		Use the following API key to configure your Smog Printer
+	%p
+		%b= current_user.api_key
+
+	%p	
+		Oh, if you want to Tweet something, just fill in the form below.
 			
 		%form{:name => "tweet", :action => "/tweet"}
-			%input{:type => "text", :name => "message", :class => "text"}
-			%input{:type => "submit", :value => "Tweet", :class => "button"}
-	    
-
-- else
-	%p You are not logged in.
+			%input{:type => "text", :name => "message", :class => "text", :size => 65}
+			%input{:type => "submit", :value => "Tweet this", :class => "button"}
