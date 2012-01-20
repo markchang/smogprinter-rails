@@ -1,4 +1,4 @@
-!!Smog Printer
+#Smog Printer
 
 Open source copy of the Berg Cloud Printer.
 
