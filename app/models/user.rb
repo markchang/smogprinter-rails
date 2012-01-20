@@ -37,5 +37,21 @@ class User < ActiveRecord::Base
     client = Twitter::Client.new
     client.update(message)
   end
+  
+  def get_mentions
+    Twitter.configure do |config|
+      config.consumer_key = ENV['TWITTER_KEY']
+      config.consumer_secret = ENV['TWITTER_SECRET']
+      config.oauth_token = self.token
+      config.oauth_token_secret = self.secret
+    end
 
+    tweets = []
+    client = Twitter::Client.new
+    client.mentions.map do |status|
+      tweets << "#{status.user.screen_name}: #{status.text}"
+    end
+    
+    return tweets
+  end
 end
