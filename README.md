@@ -1,4 +1,8 @@
-This is the simplest Rails 3.0 + Omniauth 1.0 app I could come up with. After you authorize, it can tweet a message on your behalf.
+!!Smog Printer
+
+Open source copy of the Berg Cloud Printer.
+
+First version will print the latest 20 mentions from Twitter.
 
 Setup:
 
